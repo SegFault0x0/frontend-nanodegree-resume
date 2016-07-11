@@ -1,3 +1,5 @@
+'use strict';
+
 ///////////////////////////// VARIABLES ///////////////////////////////////////
 
 // General Info
@@ -13,16 +15,16 @@ var bio = {
         twitter: "PaulNikon",
         location: "Dallas, TX"
     },
-    welcomeMessage: "\"Sweet something... of... someplace.\"",
-    skills: ["C", "C++", "Java", "PL/SQL", "HTML5", "CSS", "Javascript", "jQuery", "Node.js", "AngularJS", "Python"],
+    welcomeMessage: "(\"Black Lives Matter\" !== \"Anti-Police\")",
+    skills: ["C", "C++", "Java", "PL/SQL", "HTML5", "CSS", "Javascript",
+                "jQuery", "Node.js", "AngularJS", "Python"],
     biopic: "images/Hermes.png",
-    display: function () { displayBio(); }
 };
 
 // Education Info
 var education = {
 
-    "schools": [
+    schools: [
         {
             "name": "University",
             "location": "New York, NY",
@@ -40,7 +42,7 @@ var education = {
             "url": "http://www.itt.edu"
         }
     ],
-    "onlineCourses": [
+    onlineCourses: [
         {
             "title": "FrontEnd Developer Nanodegree",
             "school": "Udacity",
@@ -55,13 +57,12 @@ var education = {
             "url": "http://www.coursera.com"
         }
     ],
-    display: function() { displayEducation(); }
 };
 
 // Employment Info
 var work = {
 
-    "jobs": [
+    jobs: [
         {
             "employer": "this.Company",
             "title": "Sr. Software Engineer",
@@ -77,13 +78,12 @@ var work = {
             "description": "Making legacy code."
         }
     ],
-    display: function() { displayWork(); }
 };
 
 // Project Info
 var projects = {
 
-    projs: [
+    projects: [
     {
         title: "Portfolio",
         dates: "Jan 2016 - Feb 2016",
@@ -91,23 +91,7 @@ var projects = {
         images: ["images/Portfolio.png"]
     }
     ],
-    display: function() { displayProjects(); }
 };
-
-
-///////////////////////////// DATA SECTION /////////////////////////////////////
-bio.display();
-work.display();
-projects.display();
-education.display();
-
-// Display map
-$('#mapDiv').append(googleMap);
-
-$('#main').append(internationalizeButton);
-
-// Display Footer
-displayContactInfo('#footerContacts');
 
 
 ///////////////////////////// FUNCTIONS ////////////////////////////////////////
@@ -190,7 +174,7 @@ function displayContactInfo(selector) {
     }
 }
 
-function displayBio() {
+bio.display = function() {
 
     // Populate Bio Section
     var formattedName = HTMLheaderName.replace('%data%', bio.name);
@@ -222,7 +206,7 @@ function displayBio() {
     }
 } //end displayBio()
 
-function displayWork() {
+work.display = function() {
 
     // Employment history
     if (work.jobs.length > 0) {
@@ -234,16 +218,16 @@ function displayWork() {
 
             // Format the Work fields
             var formattedEmployer =
-                    HTMLworkEmployer.replace('%data%', job.employer);
+                HTMLworkEmployer.replace('%data%', job.employer);
 
             var formattedTitle = HTMLworkTitle.replace('%data%', job.title);
             var formattedDates = HTMLworkDates.replace('%data%', job.dates);
 
             var formattedLocation =
-                    HTMLworkLocation.replace('%data%', job.location);
+                HTMLworkLocation.replace('%data%', job.location);
 
             var formattedDescription =
-                    HTMLworkDescription.replace('%data%', job.description);
+                HTMLworkDescription.replace('%data%', job.description);
 
             // Display employment fields
             $('.work-entry:last').append(formattedEmployer + formattedTitle);
@@ -254,11 +238,11 @@ function displayWork() {
     }
 } //end displayWork()
 
-function displayProjects() {
+projects.display = function() {
 
-    if (projects.projs.length > 0) {
+    if (projects.projects.length > 0) {
 
-        projects.projs.forEach(function(project) {
+        projects.projects.forEach(function(project) {
 
             // Enable the 'Projects' section
             $('#projects').append(HTMLprojectStart);
@@ -286,7 +270,7 @@ function displayProjects() {
     }
 } //end displayProjects()
 
-function displayEducation() {
+education.display = function() {
 
     if (education.schools.length > 0) {
 
@@ -348,6 +332,20 @@ function displayEducation() {
             $('.education-entry:last').append(formattedURL);
         });
     }
-} //end displayEducation()
+} //end education.display()
 
+
+///////////////////////////// DATA SECTION /////////////////////////////////////
+bio.display();
+work.display();
+projects.display();
+education.display();
+
+// Display map
+$('#mapDiv').append(googleMap);
+
+$('#main').append(internationalizeButton);
+
+// Display Footer
+displayContactInfo('#footerContacts');
 

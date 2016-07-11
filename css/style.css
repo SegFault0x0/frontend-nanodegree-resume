@@ -1,3 +1,9 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body,
 div,
 ul,
@@ -9,212 +15,284 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
 }
 
 .clear-fix {
-  overflow: auto;
+    overflow: auto;
 }
 
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 5%;
+    padding: 0 5%;
 }
 
 h1 {
-  font-size: 40px;
-  color: #f5a623;
-  line-height: 48px;
-  display: inline;
+    font-size: 40px;
+    color: #f5a623;
+    line-height: 48px;
+    display: inline;
 }
 
 h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999;
-  line-height: 29px;
-  padding: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #999;
+    line-height: 29px;
+    padding: 10px;
 }
 
 h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #000;
-  line-height: 22px;
+    font-style: italic;
+    font-size: 20px;
+    color: #000;
+    line-height: 22px;
 }
 
 h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4a4a4a;
-  line-height: 17px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4a4a4a;
+    line-height: 17px;
 }
 
 h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+    padding: 10px 5%;
 }
 
-
 .date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: left;
+    font-style: italic;
+    font-size: 14px;
+    color: #999;
+    line-height: 16px;
+    float: left;
 }
 
 .location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: right;
-
+    font-style: italic;
+    font-size: 14px;
+    color: #999;
+    line-height: 16px;
+    float: right;
 }
 
 p {
-  font-size: 14px;
-  color: #333;
-  line-height: 21px;
+    font-size: 14px;
+    color: #333;
+    line-height: 21px;
 }
 
 a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
+    color: #1199c3;
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
 }
 
 .welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
-  display: block
+    font-style: italic;
+    font-size: 18px;
+    color: #f3f3f3;
+    line-height: 28px;
+    display: block;
 }
 
 #skills-h3 {
-  color: #f5ae23;
-  display: none;
+    color: #f5ae23;
+    display: none;
 }
 
 .orange {
-  background-color: #f5ae23;
+    background-color: #f5ae23;
 }
 
 .orange-text {
-  color: #f5ae23;
+    color: #f5ae23;
 }
 
 .white-text {
-  font-weight: bold;
-  color: #fff;
+    font-weight: bold;
+    color: #fff;
 }
 
 .gray {
-  background-color: #f3f3f3;
-  padding-bottom: 10px;
-  clear:both;
+    background-color: #f3f3f3;
+    padding-bottom: 10px;
+    clear: both;
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+    background-color: #4a4a4a;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+    background-color: #484848;
 }
 
 .flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 12px;
 }
 
+/*#skills.flex-box {
+  flex-direction: column;
+  -webkit-align-items: left;
+  align-items: left;
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+}*/
+
 .center-content {
-  padding: 2.5% 5%;
+    padding: 2.5% 5%;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
+    float: left;
+    padding: 10px;
+    width: 200px;
+    display: none;
 }
 
 .projImg {
-  height: 250px;
-  width: 300px;
+    height: 250px;
+    width: 300px;
 }
 
 img {
-  padding: 10px;
+    padding: 10px;
 }
 
 span {
-  padding: 5px;
+    padding: 5px;
 }
 
 #lets-connect {
-  text-align: center;
+    text-align: center;
 }
 
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
+.flex-item {
+    margin: 0;
+    display: inline-block;
+/*  -webkit-columns: 150px 2;
+  -moz-columns: 150px 2;
+  columns: 150px 2;
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;*/;
 }
 
 #map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
+    display: block;
+    height: 100%;
+    margin: 0 5%;
 }
 
 #mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+    height: 400px;
+    width: 100%;
+    padding-bottom: 5%;
+}
+
+#skills li {
+    width: 50%;
+}
+
+#button {
+    width: 100%;
+    display: flex;
+}
+
+
+/* Media queries to handle various device widths */
+
+@media only screen and (max-width: 1100px) {
+    #topContacts {
+        width: 100%;
+    }
+
+    #topContacts li {
+        width: 50%;
+    };
+}
+
+@media only screen and (max-width: 1024px) {
+    #lets-connect {
+        display: none;
+    }
+
+    #btnName {
+        margin-top: 5%;
+    };
+}
+
+@media only screen and (max-width:900px) {
+    .biopic {
+        width: 175px;
+    };
 }
 
 @media only screen and (min-width: 750px) {
-  #skills-h3,
+    #skills-h3,
   .biopic {
-    display: block;
-  }
+        display: block;
+    };
+}
+
+@media only screen and (max-width: 750px) {
+    .biopic {
+        width: 150px;
+    }
+
+    .welcome-message {
+        display: none;
+    };
+}
+
+@media only screen and (max-width: 500px) {
+    #topContacts .flex-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    #name {
+        display: block;
+    };
+}
+
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+    #btnName {
+        margin-top: 20%;
+    }
+
+    #skills .flex-item {
+        width: 50%;
+        font-size: 12px;
+        text-align: center;
+    };
+}
+
+@media only screen and (max-width: 320px) {
+    #skills .flex-item {
+        width: 100%;
+        text-align: center;
+    };
 }
