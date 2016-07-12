@@ -17,80 +17,70 @@ var bio = {
     },
     welcomeMessage: "(\"Black Lives Matter\" !== \"Anti-Police\")",
     skills: ["C", "C++", "Java", "PL/SQL", "HTML5", "CSS", "Javascript",
-                "jQuery", "Node.js", "AngularJS", "Python"],
+        "jQuery", "Node.js", "AngularJS", "Python"
+    ],
     biopic: "images/Hermes.png",
 };
 
 // Education Info
 var education = {
 
-    schools: [
-        {
-            "name": "University",
-            "location": "New York, NY",
-            "degree": "B.S.",
-            "majors": ["Comp. Sci"],
-            "dates": "3000 - 3004",
-            "url": "http://www.institution.edu"
-        },
-        {
-            "name": "Another University",
-            "location": "New New York, NY",
-            "degree": "B.A.",
-            "majors": ["Poli. Sci"],
-            "dates": "3002 - 3005",
-            "url": "http://www.itt.edu"
-        }
-    ],
-    onlineCourses: [
-        {
-            "title": "FrontEnd Developer Nanodegree",
-            "school": "Udacity",
-            "date": "2016",
-            "url": "http://www.udacity.com"
-        },
-        {
-            "title": "Programming Mobile Applications for Android Handheld " +
-                     "Systems",
-            "school": "Coursera",
-            "date": "2012",
-            "url": "http://www.coursera.com"
-        }
-    ],
+    schools: [{
+        "name": "University",
+        "location": "New York, NY",
+        "degree": "B.S.",
+        "majors": ["Comp. Sci"],
+        "dates": "3000 - 3004",
+        "url": "http://www.institution.edu"
+    }, {
+        "name": "Another University",
+        "location": "New New York, NY",
+        "degree": "B.A.",
+        "majors": ["Poli. Sci"],
+        "dates": "3002 - 3005",
+        "url": "http://www.itt.edu"
+    }],
+    onlineCourses: [{
+        "title": "FrontEnd Developer Nanodegree",
+        "school": "Udacity",
+        "date": "2016",
+        "url": "http://www.udacity.com"
+    }, {
+        "title": "Programming Mobile Applications for Android Handheld " +
+            "Systems",
+        "school": "Coursera",
+        "date": "2012",
+        "url": "http://www.coursera.com"
+    }],
 };
 
 // Employment Info
 var work = {
 
-    jobs: [
-        {
-            "employer": "this.Company",
-            "title": "Sr. Software Engineer",
-            "location": "Los Angeles, CA",
-            "dates": "Jan 3004 - Current",
-            "description": "Maintaining legacy code."
-        },
-        {
-            "employer": "past.Company",
-            "title": "Software Engineer",
-            "location": "Gainesville, FL",
-            "dates": "June 3000 - Jan 3004",
-            "description": "Making legacy code."
-        }
-    ],
+    jobs: [{
+        "employer": "this.Company",
+        "title": "Sr. Software Engineer",
+        "location": "Los Angeles, CA",
+        "dates": "Jan 3004 - Current",
+        "description": "Maintaining legacy code."
+    }, {
+        "employer": "past.Company",
+        "title": "Software Engineer",
+        "location": "Gainesville, FL",
+        "dates": "June 3000 - Jan 3004",
+        "description": "Making legacy code."
+    }],
 };
 
 // Project Info
 var projects = {
 
-    projects: [
-    {
+    projects: [{
         title: "Portfolio",
         dates: "Jan 2016 - Feb 2016",
         description: "Small portfolio demonstrating key HTML and CSS concepts.",
         images: ["images/Portfolio.png"]
-    }
-    ],
+    }],
 };
 
 
@@ -112,12 +102,12 @@ function inName(name) {
 
         var names = name.trim().split(' ');
 
-        names[0] = names[0].slice(0,1).toUpperCase() +
-                   names[0].slice(1).toLowerCase();
+        names[0] = names[0].slice(0, 1).toUpperCase() +
+            names[0].slice(1).toLowerCase();
         names[1] = names[1].toUpperCase();
 
         // Update button text
-       $('#btnName').html('Reset');
+        $('#btnName').html('Reset');
         return (names[0] + ' ' + names[1]);
     }
 } //end inName(name)
@@ -164,7 +154,7 @@ function displayContactInfo(selector) {
                             info).replace('%data%', bio.contacts.location);
                         break;
 
-                     default:
+                    default:
                         break;
                 }
 
@@ -292,15 +282,15 @@ education.display = function() {
             var majorList;
             for (var i = 0; i < school.majors.length; ++i) {
 
-                var major =  school.majors[i];
-                majorList =  (majorList) ? (majorList + major) : major;
+                var major = school.majors[i];
+                majorList = (majorList) ? (majorList + major) : major;
                 majorList += (school.majors[i + 1]) ? ', ' : '';
             }
 
             var formattedMajor = HTMLschoolMajor.replace('%data%', majorList);
 
             $('.education-entry:last').append(formattedSchool +
-                                              formattedDegree);
+                formattedDegree);
             $('.education-entry:last').append(formattedDates);
             $('.education-entry:last').append(formattedMajor);
         });
@@ -348,4 +338,3 @@ $('#main').append(internationalizeButton);
 
 // Display Footer
 displayContactInfo('#footerContacts');
-
