@@ -204,7 +204,7 @@ bio.display = function() {
             $('#skills').append(formattedSkill);
         });
     }
-} //end displayBio()
+}; //end displayBio()
 
 work.display = function() {
 
@@ -236,7 +236,7 @@ work.display = function() {
             $('.work-entry:last').append(formattedDescription);
         });
     }
-} //end displayWork()
+}; //end displayWork()
 
 projects.display = function() {
 
@@ -268,7 +268,7 @@ projects.display = function() {
             });
         });
     }
-} //end displayProjects()
+}; //end displayProjects()
 
 education.display = function() {
 
@@ -332,7 +332,7 @@ education.display = function() {
             $('.education-entry:last').append(formattedURL);
         });
     }
-} //end education.display()
+}; //end education.display()
 
 
 ///////////////////////////// DATA SECTION /////////////////////////////////////
