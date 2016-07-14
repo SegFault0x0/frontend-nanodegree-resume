@@ -283,7 +283,7 @@ education.display = function() {
                 HTMLonlineURL.replace('%data%', myClass.url);
 
             $('.education-entry:last').append(formattedTitle + formattedSchool,
-                formattedDates, formattedURL;
+                formattedDates, formattedURL);
         });
     }
 }; //end education.display()
@@ -299,4 +299,3 @@ education.display();
 $('#mapDiv').append(googleMap);
 
 $('#main').append(internationalizeButton);
-
