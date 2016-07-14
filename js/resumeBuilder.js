@@ -26,31 +26,31 @@ var bio = {
 var education = {
 
     schools: [{
-        "name": "University",
-        "location": "New York, NY",
-        "degree": "B.S.",
-        "majors": ["Comp. Sci"],
-        "dates": "3000 - 3004",
-        "url": "http://www.institution.edu"
+        name: "University",
+        location: "New York, NY",
+        degree: "B.S.",
+        majors: ["Comp. Sci"],
+        dates: "3000 - 3004",
+        url: "http://www.institution.edu"
     }, {
-        "name": "Another University",
-        "location": "New New York, NY",
-        "degree": "B.A.",
-        "majors": ["Poli. Sci"],
-        "dates": "3002 - 3005",
-        "url": "http://www.itt.edu"
+        name: "Another University",
+        location: "New New York, NY",
+        degree: "B.A.",
+        majors: ["Poli. Sci"],
+        dates: "3002 - 3005",
+        url: "http://www.itt.edu"
     }],
     onlineCourses: [{
-        "title": "FrontEnd Developer Nanodegree",
-        "school": "Udacity",
-        "date": "2016",
-        "url": "http://www.udacity.com"
+        title: "FrontEnd Developer Nanodegree",
+        school: "Udacity",
+        date: "2016",
+        url: "http://www.udacity.com"
     }, {
-        "title": "Programming Mobile Applications for Android Handheld " +
+        title: "Programming Mobile Applications for Android Handheld " +
             "Systems",
-        "school": "Coursera",
-        "date": "2012",
-        "url": "http://www.coursera.com"
+        school: "Coursera",
+        date: "2012",
+        url: "http://www.coursera.com"
     }],
 };
 
@@ -58,17 +58,17 @@ var education = {
 var work = {
 
     jobs: [{
-        "employer": "this.Company",
-        "title": "Sr. Software Engineer",
-        "location": "Los Angeles, CA",
-        "dates": "Jan 3004 - Current",
-        "description": "Maintaining legacy code."
+        employer: "this.Company",
+        title: "Sr. Software Engineer",
+        location: "Los Angeles, CA",
+        dates: "Jan 3004 - Current",
+        description: "Maintaining legacy code."
     }, {
-        "employer": "past.Company",
-        "title": "Software Engineer",
-        "location": "Gainesville, FL",
-        "dates": "June 3000 - Jan 3004",
-        "description": "Making legacy code."
+        employer: "past.Company",
+        title: "Software Engineer",
+        location: "Gainesville, FL",
+        dates: "June 3000 - Jan 3004",
+        description: "Making legacy code."
     }],
 };
 
@@ -112,57 +112,23 @@ function inName(name) {
     }
 } //end inName(name)
 
-function displayContactInfo(selector) {
+bio.displayContactInfo = function(selector) {
 
     if (bio.contacts.length !== 0) {
 
+        var formattedInfo;
         for (var info in bio.contacts) {
 
             if (bio.contacts.hasOwnProperty(info)) {
 
-                var formattedInfo;
-
-                switch (info) {
-
-                    case 'mobile':
-                        formattedInfo = HTMLcontactGeneric.replace('%contact%',
-                            info).replace('%data%', bio.contacts.mobile);
-                        break;
-
-                    case 'email':
-                        formattedInfo = HTMLcontactGeneric.replace('%contact%',
-                            info).replace('%data%', bio.contacts.email);
-                        break;
-
-                    case 'github':
-                        formattedInfo = HTMLcontactGeneric.replace('%contact%',
-                            info).replace('%data%', bio.contacts.github);
-                        break;
-
-                    case 'stackoverflow':
-                        formattedInfo = HTMLcontactGeneric.replace('%contact%',
-                            info).replace('%data%', bio.contacts.stackoverflow);
-                        break;
-
-                    case 'twitter':
-                        formattedInfo = HTMLcontactGeneric.replace('%contact%',
-                            info).replace('%data%', bio.contacts.twitter);
-                        break;
-
-                    case 'location':
-                        formattedInfo = HTMLcontactGeneric.replace('%contact%',
-                            info).replace('%data%', bio.contacts.location);
-                        break;
-
-                    default:
-                        break;
-                }
+                formattedInfo = HTMLcontactGeneric.replace('%contact%',
+                    info).replace('%data%', bio.contacts[info]);
 
                 $(selector).append(formattedInfo);
             }
         }
     }
-}
+};
 
 bio.display = function() {
 
@@ -173,17 +139,17 @@ bio.display = function() {
     $('#header:first').prepend(formattedRole);
     $('#header').prepend(formattedName);
 
-    displayContactInfo('#topContacts');
+    // Display Header contacts
+    bio.displayContactInfo('#topContacts');
 
     // Add Picture
     var formattedBioPic = HTMLbioPic.replace('%data%', bio.biopic);
-    $('#header').append(formattedBioPic);
-
     var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
-    $('#header').append(formattedWelcome);
+
+    $('#header').append(formattedBioPic, formattedWelcome);
 
     // Populate Skills Section
-    if (bio.skills.length > 0) {
+    if (bio.skills.length) {
 
         // Enable the 'Skills at a Glance' section
         $('#header').append(HTMLskillsStart);
@@ -194,12 +160,16 @@ bio.display = function() {
             $('#skills').append(formattedSkill);
         });
     }
-}; //end displayBio()
+
+    // Display Footer
+    bio.displayContactInfo('#footerContacts');
+
+}; //end bio.display()
 
 work.display = function() {
 
     // Employment history
-    if (work.jobs.length > 0) {
+    if (work.jobs.length) {
 
         work.jobs.forEach(function(job) {
 
@@ -220,17 +190,15 @@ work.display = function() {
                 HTMLworkDescription.replace('%data%', job.description);
 
             // Display employment fields
-            $('.work-entry:last').append(formattedEmployer + formattedTitle);
-            $('.work-entry:last').append(formattedDates);
-            $('.work-entry:last').append(formattedLocation);
-            $('.work-entry:last').append(formattedDescription);
+            $('.work-entry:last').append(formattedEmployer + formattedTitle,
+                formattedDates, formattedLocation, formattedDescription);
         });
     }
-}; //end displayWork()
+}; //end work.display()
 
 projects.display = function() {
 
-    if (projects.projects.length > 0) {
+    if (projects.projects.length) {
 
         projects.projects.forEach(function(project) {
 
@@ -246,9 +214,8 @@ projects.display = function() {
             var formattedProjDesc =
                 HTMLprojectDescription.replace('%data%', project.description);
 
-            $('.project-entry').append(formattedProjTitle);
-            $('.project-entry').append(formattedProjDates);
-            $('.project-entry').append(formattedProjDesc);
+            $('.project-entry').append(formattedProjTitle, formattedProjDates,
+                formattedProjDesc);
 
             project.images.forEach(function(img) {
 
@@ -258,11 +225,11 @@ projects.display = function() {
             });
         });
     }
-}; //end displayProjects()
+}; //end projects.display()
 
 education.display = function() {
 
-    if (education.schools.length > 0) {
+    if (education.schools.length) {
 
         education.schools.forEach(function(school) {
 
@@ -289,14 +256,12 @@ education.display = function() {
 
             var formattedMajor = HTMLschoolMajor.replace('%data%', majorList);
 
-            $('.education-entry:last').append(formattedSchool +
-                formattedDegree);
-            $('.education-entry:last').append(formattedDates);
-            $('.education-entry:last').append(formattedMajor);
+            $('.education-entry:last').append(formattedSchool + formattedDegree,
+                formattedDates, formattedMajor);
         });
     }
 
-    if (education.onlineCourses.length > 0) {
+    if (education.onlineCourses.length) {
 
         // Display heading for Online Classes
         $('#education').append(HTMLonlineClasses);
@@ -317,9 +282,8 @@ education.display = function() {
             var formattedURL =
                 HTMLonlineURL.replace('%data%', myClass.url);
 
-            $('.education-entry:last').append(formattedTitle + formattedSchool);
-            $('.education-entry:last').append(formattedDates);
-            $('.education-entry:last').append(formattedURL);
+            $('.education-entry:last').append(formattedTitle + formattedSchool,
+                formattedDates, formattedURL;
         });
     }
 }; //end education.display()
@@ -336,5 +300,3 @@ $('#mapDiv').append(googleMap);
 
 $('#main').append(internationalizeButton);
 
-// Display Footer
-displayContactInfo('#footerContacts');
